@@ -41,7 +41,7 @@ public class MessageRepositoryImpl implements MessageRepository{
     @Override
     public MessageSendResponse sendMessage(Message message) {
         uriBuilder = uriConstructor(hostApiVk, sendMessage, State.SEND_MESSAGE);
-        uriBuilder.queryParam("user_id", message.getUserId());
+        uriBuilder.queryParam("peer_id", message.getPeerId());
         uriBuilder.queryParam("message", "Вы сказали: " + message.getMessage());
         uriBuilder.queryParam("random_id", 0);
         return connection.get(uriBuilder.build(vkApiConfigurationProperties.getProperties()))

@@ -15,13 +15,13 @@ import java.util.Map;
 @Data
 public class Message {
     @JsonIgnore
-    private String userId;
+    private String peerId;
     @JsonIgnore
     private String message;
 
     @JsonProperty("message")
     private void unpackNested(Map<String, Object> message) {
-        this.userId = message.get("from_id").toString();
+        this.peerId = message.get("peer_id").toString();
         this.message = message.get("text").toString();
     }
 
